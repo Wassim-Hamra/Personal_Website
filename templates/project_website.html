@@ -108,13 +108,13 @@
                 robust
                 data processing and content administration.</p>
 
-                <p><h4>📊 Database Management:</h4> I chose PostgreSQL as the foundation
-                for collecting visitor information after sending messages in the contact page.</p>
+                <p><h4>📧 Messages Management:</h4> I used the integrated python library smtplib to automatically send a personalized email
+                to my personal account to notify me about new newsletter subscribers or new messages from the contact me page</p>
 
                 <p><h4>🌐 Dependable Hosting: </h4>The website is hosted using Heroku services matched with GitHub,
                 providing a
                 stable and scalable
-                platform with a PostgreSQL database as an add-on.</p>
+                platform</p>
 
                 <p><h4>🧠 IDE of Choice:</h4> Throughout this creation, PyCharm has been my trusted
                 IDE, allowing me to
@@ -280,10 +280,12 @@
                 <div class="probootstrap-footer-widget probootstrap-link-wrap">
                     <h4 class="heading">Subscribe</h4>
                     <p>Stay updated with my latest projects</p>
-                    <form action="#">
+                   <form method="POST">
+                        {% csrf_token %}
                         <div class="form-field">
-                            <input type="text" class="form-control" placeholder="Enter your email">
-                            <button class="btn btn-subscribe">Send</button>
+                            <input type="text" name="email" class="form-control" placeholder="Enter your email">
+
+                            <button type="submit" class="btn btn-subscribe">Send</button>
                         </div>
                     </form>
                 </div>
@@ -292,7 +294,7 @@
         <div class="row copyright">
             <div class="col-md-6">
                 <div class="probootstrap-footer-widget">
-                    <p>&copy; 2017 <a href="https://uicookies.com/">uiCookies:Black</a>. Designed by <a
+                    <p>&copy; 2023 <a href="https://uicookies.com/">uiCookies:Black</a>. Designed by <a
                             href="https://uicookies.com/">uicookies.com</a> <br> Developed by <a
                             href="{% url 'about' %}">Mohamed
                         Wassim Hamra</a></p>

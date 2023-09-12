@@ -272,10 +272,12 @@
                 <div class="probootstrap-footer-widget probootstrap-link-wrap">
                     <h4 class="heading">Subscribe</h4>
                     <p>Stay updated with my latest projects</p>
-                    <form action="#">
+                    <form method="POST">
+                        {% csrf_token %}
                         <div class="form-field">
-                            <input type="text" class="form-control" placeholder="Enter your email">
-                            <button class="btn btn-subscribe">Send</button>
+                            <input type="text" name="email" class="form-control" placeholder="Enter your email">
+
+                            <button type="submit" class="btn btn-subscribe">Send</button>
                         </div>
                     </form>
                 </div>
@@ -284,7 +286,7 @@
         <div class="row copyright">
             <div class="col-md-6">
                 <div class="probootstrap-footer-widget">
-                    <p>&copy; 2017 <a href="https://uicookies.com/">uiCookies:Black</a>. Designed by <a
+                    <p>&copy; 2023 <a href="https://uicookies.com/">uiCookies:Black</a>. Designed by <a
                             href="https://uicookies.com/">uicookies.com</a> <br> Developed by <a
                             href="{% url 'about' %}">Mohamed
                         Wassim
