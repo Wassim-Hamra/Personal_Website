@@ -10,6 +10,7 @@ idna==3.4
 packaging==23.1
 Pillow==10.0.0
 psycopg2-binary==2.9.7
+ipython==8.15.0
 python-dateutil==1.5
 requests==2.31.0
 sqlparse==0.4.4
