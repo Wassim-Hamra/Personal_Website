@@ -6,13 +6,15 @@ import smtplib
 from IPython.display import clear_output
 import datetime
 #initialising email sending
+def intialise_email():
+    smtp_object = smtplib.SMTP('smtp.gmail.com',587)
+    smtp_object.ehlo()
+    smtp_object.starttls()
+    clear_output()
+    from_email = 'thedatascientist326@gmail.com'
+    smtp_object.login(from_email,'geqwrvtbvgfkaiaf')
+    return smtp_object
 
-smtp_object = smtplib.SMTP('smtp.gmail.com',587)
-smtp_object.ehlo()
-smtp_object.starttls()
-clear_output()
-from_email = 'thedatascientist326@gmail.com'
-smtp_object.login(from_email,'geqwrvtbvgfkaiaf')
 def check_email(value):
     value = value.split('@')[-1]
     value = value.split('.')[0]
@@ -52,8 +54,10 @@ def index(request):
         # form = forms.Email_newsletter(request.POST)
         # if form.is_valid():
         if check_email(email):
+            smtp_object = intialise_email()
             msg = "Subject: " + "New newsletter subscriber" + '\n' + email
-            smtp_object.sendmail(from_email, "wassimhamraa@gmail.com", msg)
+            smtp_object.sendmail("thedatascientist326@gmail.com", "wassimhamraa@gmail.com", msg)
+            smtp_object.quit()
             clear_output()
         else: pass
     return render(request, "index.html", {"form": form})
@@ -65,8 +69,10 @@ def projects(request):
         # form = forms.Email_newsletter(request.POST)
         # if form.is_valid():
         if check_email(email):
+            smtp_object = intialise_email()
             msg = "Subject: " + "New newsletter subscriber" + '\n' + email
-            smtp_object.sendmail(from_email, "wassimhamraa@gmail.com", msg)
+            smtp_object.sendmail("thedatascientist326@gmail.com", "wassimhamraa@gmail.com", msg)
+            smtp_object.quit()
             clear_output()
         else:
             pass
@@ -79,8 +85,10 @@ def project_website(request):
         # form = forms.Email_newsletter(request.POST)
         # if form.is_valid():
         if check_email(email):
+            smtp_object = intialise_email()
             msg = "Subject: " + "New newsletter subscriber" + '\n' + email
-            smtp_object.sendmail(from_email, "wassimhamraa@gmail.com", msg)
+            smtp_object.sendmail("thedatascientist326@gmail.com", "wassimhamraa@gmail.com", msg)
+            smtp_object.quit()
             clear_output()
         else:
             pass
@@ -92,8 +100,10 @@ def project_healthcenter(request):
         # form = forms.Email_newsletter(request.POST)
         # if form.is_valid():
         if check_email(email):
+            smtp_object = intialise_email()
             msg = "Subject: " + "New newsletter subscriber" + '\n' + email
-            smtp_object.sendmail(from_email, "wassimhamraa@gmail.com", msg)
+            smtp_object.sendmail("thedatascientist326@gmail.com", "wassimhamraa@gmail.com", msg)
+            smtp_object.quit()
             clear_output()
         else:
             pass
@@ -106,8 +116,10 @@ def services(request):
         # form = forms.Email_newsletter(request.POST)
         # if form.is_valid():
         if check_email(email):
+            smtp_object = intialise_email()
             msg = "Subject: " + "New newsletter subscriber" + '\n' + email
-            smtp_object.sendmail(from_email, "wassimhamraa@gmail.com", msg)
+            smtp_object.sendmail("thedatascientist326@gmail.com", "wassimhamraa@gmail.com", msg)
+            smtp_object.quit()
             clear_output()
         else:
             pass
@@ -120,8 +132,10 @@ def about(request):
         # form = forms.Email_newsletter(request.POST)
         # if form.is_valid():
         if check_email(email):
+            smtp_object = intialise_email()
             msg = "Subject: " + "New newsletter subscriber" + '\n' + email
-            smtp_object.sendmail(from_email, "wassimhamraa@gmail.com", msg)
+            smtp_object.sendmail("thedatascientist326@gmail.com", "wassimhamraa@gmail.com", msg)
+            smtp_object.quit()
             clear_output()
         else:
             pass
@@ -143,9 +157,10 @@ def contact(request):
             message = f"First Name: {first_name}\nLast Name: {last_name}\nEmail: {email}\nMessage: {message}"
             msg = MIMEText(message)
             msg["Subject"] = subject
-            msg["From"] = from_email
+            msg["From"] = "d"
             msg["To"] = "wassimhamraa@gmail.com"
-            smtp_object.sendmail(from_email, "wassimhamraa@gmail.com", msg.as_string())
+            smtp_object = intialise_email()
+            smtp_object.sendmail("thedatascientist326@gmail.com", "wassimhamraa@gmail.com", msg.as_string())
             clear_output()
         else:
             pass
@@ -158,9 +173,10 @@ def under_development(request):
         # form = forms.Email_newsletter(request.POST)
         # if form.is_valid():
         if check_email(email):
+            smtp_object = intialise_email()
             msg = "Subject: " + "New newsletter subscriber" + '\n' + email
-
-            smtp_object.sendmail(from_email, "wassimhamraa@gmail.com", msg)
+            smtp_object.sendmail("thedatascientist326@gmail.com", "wassimhamraa@gmail.com", msg)
+            smtp_object.quit()
             clear_output()
         else:
             pass
